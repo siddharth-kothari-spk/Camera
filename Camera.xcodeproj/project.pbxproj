@@ -16,6 +16,8 @@
 		B19F9FCF2A34E93A0016239F /* CameraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19F9FCE2A34E93A0016239F /* CameraTests.swift */; };
 		B19F9FD92A34E93A0016239F /* CameraUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19F9FD82A34E93A0016239F /* CameraUITests.swift */; };
 		B19F9FDB2A34E93A0016239F /* CameraUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19F9FDA2A34E93A0016239F /* CameraUITestsLaunchTests.swift */; };
+		B19F9FE92A34EDE50016239F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19F9FE82A34EDE50016239F /* Coordinator.swift */; };
+		B19F9FEB2A34EE320016239F /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19F9FEA2A34EE310016239F /* MainCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		B19F9FD42A34E93A0016239F /* CameraUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CameraUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B19F9FD82A34E93A0016239F /* CameraUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraUITests.swift; sourceTree = "<group>"; };
 		B19F9FDA2A34E93A0016239F /* CameraUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B19F9FE82A34EDE50016239F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		B19F9FEA2A34EE310016239F /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 		B19F9FB62A34E9370016239F /* Camera */ = {
 			isa = PBXGroup;
 			children = (
+				B19F9FE72A34EDCE0016239F /* Coordinator */,
 				B19F9FB72A34E9370016239F /* AppDelegate.swift */,
 				B19F9FB92A34E9370016239F /* SceneDelegate.swift */,
 				B19F9FBB2A34E9370016239F /* ViewController.swift */,
@@ -125,6 +130,15 @@
 				B19F9FDA2A34E93A0016239F /* CameraUITestsLaunchTests.swift */,
 			);
 			path = CameraUITests;
+			sourceTree = "<group>";
+		};
+		B19F9FE72A34EDCE0016239F /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				B19F9FE82A34EDE50016239F /* Coordinator.swift */,
+				B19F9FEA2A34EE310016239F /* MainCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,8 +272,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B19F9FE92A34EDE50016239F /* Coordinator.swift in Sources */,
 				B19F9FBC2A34E9370016239F /* ViewController.swift in Sources */,
 				B19F9FB82A34E9370016239F /* AppDelegate.swift in Sources */,
+				B19F9FEB2A34EE320016239F /* MainCoordinator.swift in Sources */,
 				B19F9FBA2A34E9370016239F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
