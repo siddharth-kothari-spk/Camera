@@ -18,14 +18,17 @@ class MainCoordinator: Coordinator {
     }
     
     func start() {
-      print("MainCoordinator start")
         let vc = ViewController.instantiate()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func cameraTapped() {
-        print("camera tapped")
+    func cameraTapped(_ vc: UIImagePickerControllerDelegate & UINavigationControllerDelegate) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .camera
+        imagePicker.delegate = vc
+        imagePicker.allowsEditing = true
+        self.navigationController.present(imagePicker, animated: false)
     }
 }
 
