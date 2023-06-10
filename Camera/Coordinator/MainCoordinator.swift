@@ -23,5 +23,9 @@ class MainCoordinator: Coordinator {
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
     }
+    
+    func cameraTapped() {
+        print("camera tapped")
+    }
 }
 

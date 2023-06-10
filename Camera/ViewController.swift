@@ -12,8 +12,13 @@ class ViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        navigationItem.title = "Camera"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(cameraTapped))
     }
 
+    @objc func cameraTapped() {
+        coordinator?.cameraTapped()
+    }
 
 }
 
