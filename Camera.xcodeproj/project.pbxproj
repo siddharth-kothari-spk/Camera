@@ -18,6 +18,7 @@
 		B19F9FDB2A34E93A0016239F /* CameraUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19F9FDA2A34E93A0016239F /* CameraUITestsLaunchTests.swift */; };
 		B19F9FE92A34EDE50016239F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19F9FE82A34EDE50016239F /* Coordinator.swift */; };
 		B19F9FEB2A34EE320016239F /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19F9FEA2A34EE310016239F /* MainCoordinator.swift */; };
+		B19F9FEE2A34EF090016239F /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19F9FED2A34EF090016239F /* Storyboarded.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		B19F9FDA2A34E93A0016239F /* CameraUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B19F9FE82A34EDE50016239F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		B19F9FEA2A34EE310016239F /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		B19F9FED2A34EF090016239F /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		B19F9FB62A34E9370016239F /* Camera */ = {
 			isa = PBXGroup;
 			children = (
+				B19F9FEC2A34EEF50016239F /* Protocol */,
 				B19F9FE72A34EDCE0016239F /* Coordinator */,
 				B19F9FB72A34E9370016239F /* AppDelegate.swift */,
 				B19F9FB92A34E9370016239F /* SceneDelegate.swift */,
@@ -139,6 +142,14 @@
 				B19F9FEA2A34EE310016239F /* MainCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		B19F9FEC2A34EEF50016239F /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				B19F9FED2A34EF090016239F /* Storyboarded.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +288,7 @@
 				B19F9FB82A34E9370016239F /* AppDelegate.swift in Sources */,
 				B19F9FEB2A34EE320016239F /* MainCoordinator.swift in Sources */,
 				B19F9FBA2A34E9370016239F /* SceneDelegate.swift in Sources */,
+				B19F9FEE2A34EF090016239F /* Storyboarded.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,7 +469,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Camera/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = Main.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -485,7 +497,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Camera/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = Main.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
