@@ -19,6 +19,7 @@
 		B19F9FE92A34EDE50016239F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19F9FE82A34EDE50016239F /* Coordinator.swift */; };
 		B19F9FEB2A34EE320016239F /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19F9FEA2A34EE310016239F /* MainCoordinator.swift */; };
 		B19F9FEE2A34EF090016239F /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19F9FED2A34EF090016239F /* Storyboarded.swift */; };
+		B19F9FFA2A3739680016239F /* Camera.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B19F9FF82A3739680016239F /* Camera.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		B19F9FE82A34EDE50016239F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		B19F9FEA2A34EE310016239F /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		B19F9FED2A34EF090016239F /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		B19F9FF92A3739680016239F /* Camera.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Camera.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				B19F9FC02A34E93A0016239F /* Assets.xcassets */,
 				B19F9FC22A34E93A0016239F /* LaunchScreen.storyboard */,
 				B19F9FC52A34E93A0016239F /* Info.plist */,
+				B19F9FF82A3739680016239F /* Camera.xcdatamodeld */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B19F9FFA2A3739680016239F /* Camera.xcdatamodeld in Sources */,
 				B19F9FE92A34EDE50016239F /* Coordinator.swift in Sources */,
 				B19F9FBC2A34E9370016239F /* ViewController.swift in Sources */,
 				B19F9FB82A34E9370016239F /* AppDelegate.swift in Sources */,
@@ -630,6 +634,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B19F9FF82A3739680016239F /* Camera.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B19F9FF92A3739680016239F /* Camera.xcdatamodel */,
+			);
+			currentVersion = B19F9FF92A3739680016239F /* Camera.xcdatamodel */;
+			path = Camera.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B19F9FAC2A34E9370016239F /* Project object */;
 }
