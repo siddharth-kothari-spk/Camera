@@ -12,10 +12,15 @@ class ViewController: UIViewController, Storyboarded {
     weak var coordinator : MainCoordinator?
     private var cameraViewModel = CameraViewModel()
     weak var albumTableView: UITableView!
+    weak var noAlbumView: UIView!
     
     override func loadView() {
         super.loadView()
-
+        setupTableView()
+        setupNoAlbumView()
+    }
+    
+    private func setupTableView() {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(tableView)
@@ -26,6 +31,28 @@ class ViewController: UIViewController, Storyboarded {
             self.view.trailingAnchor.constraint(equalTo: tableView.trailingAnchor),
         ])
         self.albumTableView = tableView
+    }
+    
+    private func setupNoAlbumView() {
+        let noView = UIView(frame: .zero)
+        noView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let label = UILabel(frame: CGRect(x: 50, y: 100, width: 300, height: 150))
+        label.text = "No Albums available. Please click on camera icon to initiate album creation"
+        label.textAlignment = .center
+        label.backgroundColor = .blue
+        label.textColor = .white
+        label.numberOfLines = 0
+        
+        noView.addSubview(label)
+        self.view.addSubview(noView)
+        NSLayoutConstraint.activate([
+        self.view.safeAreaLayoutGuide.topAnchor.constraint(equalTo: noView.topAnchor),
+            self.view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: noView.bottomAnchor),
+            self.view.leadingAnchor.constraint(equalTo: noView.leadingAnchor),
+            self.view.trailingAnchor.constraint(equalTo: noView.trailingAnchor),
+        ])
+        self.noAlbumView = noView
     }
     
     override func viewDidLoad() {
@@ -41,7 +68,7 @@ class ViewController: UIViewController, Storyboarded {
     }
 
     @objc func cameraTapped() {
-        coordinator?.cameraTapped()
+        coordinator?.cameraTapped(self)
     }
     
     private func loadAlbums() {
@@ -51,9 +78,18 @@ class ViewController: UIViewController, Storyboarded {
         let fetchRequest = NSFetchRequest<Album>(entityName: "Album")
         do {
             cameraViewModel.albums = try managedContext.fetch(fetchRequest)
-            albumTableView.reloadData()
+            if cameraViewModel.albums.count > 0 {
+                albumTableView.reloadData()
+                albumTableView.isHidden = false
+                noAlbumView.isHidden = true
+            }
+            else {
+                albumTableView.isHidden = true
+                noAlbumView.isHidden = false
+            }
+            
         } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
+            print("Could not fetch the entity Album. \(error), \(error.userInfo)")
         }
     }
 
