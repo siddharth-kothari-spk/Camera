@@ -20,6 +20,12 @@
 		B19F9FEB2A34EE320016239F /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19F9FEA2A34EE310016239F /* MainCoordinator.swift */; };
 		B19F9FEE2A34EF090016239F /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19F9FED2A34EF090016239F /* Storyboarded.swift */; };
 		B19F9FFA2A3739680016239F /* Camera.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B19F9FF82A3739680016239F /* Camera.xcdatamodeld */; };
+		B19F9FFD2A38759D0016239F /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19F9FFC2A38759D0016239F /* CameraViewModel.swift */; };
+		B19FA0002A3877450016239F /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19F9FFF2A3877450016239F /* CameraViewController.swift */; };
+		B19FA0042A3877EE0016239F /* AlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19FA0032A3877EE0016239F /* AlbumDetailViewController.swift */; };
+		B19FA0482A3B59470016239F /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19FA0472A3B59470016239F /* PhotoCell.swift */; };
+		B19FA04A2A3B598F0016239F /* LoadImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19FA0492A3B598F0016239F /* LoadImages.swift */; };
+		B19FA04D2A3B5D3E0016239F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19FA04C2A3B5D3E0016239F /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +63,12 @@
 		B19F9FEA2A34EE310016239F /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		B19F9FED2A34EF090016239F /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		B19F9FF92A3739680016239F /* Camera.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Camera.xcdatamodel; sourceTree = "<group>"; };
+		B19F9FFC2A38759D0016239F /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
+		B19F9FFF2A3877450016239F /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		B19FA0032A3877EE0016239F /* AlbumDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewController.swift; sourceTree = "<group>"; };
+		B19FA0472A3B59470016239F /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		B19FA0492A3B598F0016239F /* LoadImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadImages.swift; sourceTree = "<group>"; };
+		B19FA04C2A3B5D3E0016239F /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,11 +119,14 @@
 		B19F9FB62A34E9370016239F /* Camera */ = {
 			isa = PBXGroup;
 			children = (
+				B19FA04B2A3B5D190016239F /* Custom */,
+				B19FA0462A3B590A0016239F /* Cell */,
+				B19F9FFE2A38772D0016239F /* Screens */,
+				B19F9FFB2A3875890016239F /* ViewModel */,
 				B19F9FEC2A34EEF50016239F /* Protocol */,
 				B19F9FE72A34EDCE0016239F /* Coordinator */,
 				B19F9FB72A34E9370016239F /* AppDelegate.swift */,
 				B19F9FB92A34E9370016239F /* SceneDelegate.swift */,
-				B19F9FBB2A34E9370016239F /* ViewController.swift */,
 				B19F9FBD2A34E9370016239F /* Main.storyboard */,
 				B19F9FC02A34E93A0016239F /* Assets.xcassets */,
 				B19F9FC22A34E93A0016239F /* LaunchScreen.storyboard */,
@@ -151,8 +166,43 @@
 			isa = PBXGroup;
 			children = (
 				B19F9FED2A34EF090016239F /* Storyboarded.swift */,
+				B19FA0492A3B598F0016239F /* LoadImages.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		B19F9FFB2A3875890016239F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B19F9FFC2A38759D0016239F /* CameraViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B19F9FFE2A38772D0016239F /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				B19F9FBB2A34E9370016239F /* ViewController.swift */,
+				B19F9FFF2A3877450016239F /* CameraViewController.swift */,
+				B19FA0032A3877EE0016239F /* AlbumDetailViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		B19FA0462A3B590A0016239F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B19FA0472A3B59470016239F /* PhotoCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B19FA04B2A3B5D190016239F /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				B19FA04C2A3B5D3E0016239F /* Helpers.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,10 +339,16 @@
 				B19F9FFA2A3739680016239F /* Camera.xcdatamodeld in Sources */,
 				B19F9FE92A34EDE50016239F /* Coordinator.swift in Sources */,
 				B19F9FBC2A34E9370016239F /* ViewController.swift in Sources */,
+				B19FA0042A3877EE0016239F /* AlbumDetailViewController.swift in Sources */,
 				B19F9FB82A34E9370016239F /* AppDelegate.swift in Sources */,
 				B19F9FEB2A34EE320016239F /* MainCoordinator.swift in Sources */,
+				B19F9FFD2A38759D0016239F /* CameraViewModel.swift in Sources */,
 				B19F9FBA2A34E9370016239F /* SceneDelegate.swift in Sources */,
 				B19F9FEE2A34EF090016239F /* Storyboarded.swift in Sources */,
+				B19FA04A2A3B598F0016239F /* LoadImages.swift in Sources */,
+				B19FA04D2A3B5D3E0016239F /* Helpers.swift in Sources */,
+				B19FA0482A3B59470016239F /* PhotoCell.swift in Sources */,
+				B19FA0002A3877450016239F /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
