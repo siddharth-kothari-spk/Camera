@@ -17,18 +17,46 @@ class CameraViewController: UIViewController, Storyboarded {
     private var imagePicker: UIImagePickerController!
     private var saveButton: UIButton!
     
-class CameraViewController: UIViewController {
+    private var collectionView: UICollectionView!
+    
+    weak var delegate: LoadImages?
+    weak var noPreviewView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupCollectionView()
+        setupNoPreviewView()
         setupCamera()
         setupNavigationBar()
         setNavigationItemVisibility()
     }
         
+    private func setupCollectionView() {
+        collectionView = Helpers.getCollectionView(view: view, delegateVC: self)
+        view.addSubview(collectionView)
+    }
     
+    private func setupNoPreviewView() {
+        let noView = UIView(frame: .zero)
+        noView.translatesAutoresizingMaskIntoConstraints = false
         
-        // Do any additional setup after loading the view.
+        let label = UILabel(frame: CGRect(x: 50, y: 100, width: 300, height: 150))
+        label.text = "No images to preview."
+        label.textAlignment = .center
+        label.backgroundColor = .blue
+        label.textColor = .white
+        label.numberOfLines = 0
+        
+        noView.addSubview(label)
+        self.view.addSubview(noView)
+        NSLayoutConstraint.activate([
+        self.view.safeAreaLayoutGuide.topAnchor.constraint(equalTo: noView.topAnchor),
+            self.view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: noView.bottomAnchor),
+            self.view.leadingAnchor.constraint(equalTo: noView.leadingAnchor),
+            self.view.trailingAnchor.constraint(equalTo: noView.trailingAnchor),
+        ])
+        self.noPreviewView = noView
+    }
     
     private func setupCamera() {
         imagePicker = UIImagePickerController()
