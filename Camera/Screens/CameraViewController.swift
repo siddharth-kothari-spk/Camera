@@ -57,6 +57,7 @@ class CameraViewController: UIViewController {
         customOverlayView.addSubview(saveButton)
         imagePicker.cameraOverlayView = customOverlayView
         
+        createAlbum()
     }
     
     private func setupNavigationBar() {
@@ -129,8 +130,28 @@ class CameraViewController: UIViewController {
         }
     }
     
-    /*
-    // MARK: - Navigation
+    private func createAlbum() {
+        let alertController = UIAlertController(title: "Create Album", message: nil, preferredStyle: .alert)
+        alertController.addTextField { textField in
+            textField.placeholder = "Album Name"
+        }
+ 
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { [weak self] _ in
+            self?.coordinator?.navigationController.popViewController(animated: true)
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Create", style: .default) { [weak self] _ in
+            if let albumName = alertController.textFields?.first?.text?.trimmingCharacters(in: .whitespaces) {
+                var name = albumName
+                if albumName.count == 0 {
+                    name = "Camera_" + "\(Date().timeIntervalSince1970)"
+                }
+                self?.cameraViewModel.createAlbum(name: name)
+                self?.presentImagePicker()
+            }
+        })
+        present(alertController, animated: true, completion: nil)
+    }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
