@@ -18,17 +18,22 @@ class MainCoordinator: Coordinator {
     }
     
     func start() {
-        let vc = ViewController.instantiate()
-        vc.coordinator = self
-        navigationController.pushViewController(vc, animated: false)
+        let viewController = ViewController.instantiate()
+        viewController.coordinator = self
+        navigationController.pushViewController(viewController, animated: false)
     }
     
-    func cameraTapped(_ vc: UIImagePickerControllerDelegate & UINavigationControllerDelegate) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .camera
-        imagePicker.delegate = vc
-        imagePicker.allowsEditing = true
-        self.navigationController.present(imagePicker, animated: false)
+    func cameraTapped(_ delegateVC: LoadImages) {
+        let cameraViewController = CameraViewController.instantiate()
+        cameraViewController.coordinator = self
+        cameraViewController.delegate = delegateVC
+        navigationController.pushViewController(cameraViewController, animated: true)
+    }
+    
+    func showAlbumDetailVCFor(_ album: Album) {
+        let albumDetailViewController = AlbumDetailViewController(album: album)
+        albumDetailViewController.coordinator = self
+        navigationController.pushViewController(albumDetailViewController, animated: true)
     }
 }
 
