@@ -72,6 +72,62 @@ class CameraViewController: UIViewController {
         navigationItem.rightBarButtonItem?.isHidden = !(cameraViewModel.capturedImages.count > 0)
     }
     
+    @objc func saveImagesButtonTapped() {
+        if cameraViewModel.capturedImages.count > 0 {
+            cameraViewModel.saveImagesToAlbum()
+            coordinator?.navigationController.popViewController(animated: true)
+            delegate?.loadImages()
+        }
+    }
+    
+    @objc private func addMoreImages() {
+        presentImagePicker()
+        setSaveButtonTitle()
+    }
+    
+    @objc private func captureButtonTapped() {
+        imagePicker.takePicture()
+    }
+    
+    @objc private func closeButtonTapped() {
+        imagePicker.dismiss(animated: true, completion: nil)
+        cameraViewModel.deleteAlbum()
+        coordinator?.navigationController.popViewController(animated: true)
+    }
+    
+    @objc private func saveButtonTapped() {
+        saveImagesButtonTapped()
+        imagePicker.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc private func previewButtonTapped() {
+        imagePicker.dismiss(animated: true, completion: nil)
+        if cameraViewModel.capturedImages.count > 0 {
+            collectionView.reloadData()
+            collectionView.isHidden = false
+            noPreviewView.isHidden = true
+        }
+        else {
+            collectionView.isHidden = true
+            noPreviewView.isHidden = false
+        }
+    }
+    
+    @objc private func backToParent() {
+        if cameraViewModel.capturedImages.count > 0 {
+            let alertController = UIAlertController(title: "You have unsaved images.", message: "Press Save to save images", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: {[weak self] _ in
+                self?.coordinator?.navigationController.popViewController(animated: true)}))
+            alertController.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak self] _ in
+                self?.saveImagesButtonTapped()
+                self?.coordinator?.navigationController.popViewController(animated: true)
+            }))
+            present(alertController, animated: true, completion: nil)
+        }
+        else {
+            coordinator?.navigationController.popViewController(animated: true)
+        }
+    }
     
     /*
     // MARK: - Navigation
