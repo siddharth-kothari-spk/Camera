@@ -112,3 +112,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         coordinator?.showAlbumDetailVCFor(album)
     }
 }
+
+
+extension ViewController: LoadImages {
+    func loadImages() {
+        loadAlbums()
+    }
+}
