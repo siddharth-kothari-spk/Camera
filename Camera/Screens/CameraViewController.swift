@@ -181,12 +181,43 @@ class CameraViewController: UIViewController, Storyboarded {
         present(alertController, animated: true, completion: nil)
     }
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func presentImagePicker() {
+        present(imagePicker, animated: true, completion: nil)
+    }
+        
+    private func setSaveButtonTitle() {
+        saveButton.setTitle("Save(\(cameraViewModel.capturedImages.count))", for: .normal)
+    }
+}
+
+extension CameraViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            cameraViewModel.capturedImages.append(image)
         }
-    */
+        setSaveButtonTitle()
+        setNavigationItemVisibility()
+        picker.dismiss(animated: false, completion: nil)
+        present(imagePicker, animated: false, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
 
 
+extension CameraViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return cameraViewModel.capturedImages.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
+        let photo = cameraViewModel.capturedImages[indexPath.item]
+        cell.imageView.image = photo
+        return cell
+    }
 }
